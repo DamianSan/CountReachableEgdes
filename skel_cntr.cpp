@@ -6,6 +6,7 @@ bool import_graph(vector<graph_edge> &m_edges, int &max, int &src) {
 	max = 0;
 	graph_edge edge = {0, 0};
 	string file_name;
+	char ch;
 	ifstream graf1;
 	cout << "Enter file name with graph coefficients:\n";
 	cin >> file_name;
@@ -32,6 +33,17 @@ bool import_graph(vector<graph_edge> &m_edges, int &max, int &src) {
 			if (graf1.eof()) break;
 		}
 		graf1.close();
+		cout << "Default source is " << src << ". Would you like to change it?(Y/N) ";
+		cin >> ch;
+		if (ch == 'Y' || ch == 'y') {
+			cout << "Specify new source: ";
+			cin >> src;
+			cout << "Source changed to: " << src << endl;
+		}
+		else if (ch == 'N' || ch == 'n')
+			cout << "Source left as it is." << endl;
+		else
+			cout << "Wrong key --> Source left as it is." << endl;
 		return true;
 	}
 }

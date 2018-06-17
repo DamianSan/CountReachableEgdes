@@ -20,20 +20,8 @@ using namespace std;
 int main(int argc, _TCHAR* argv[]) {
 	vector<graph_edge> edges; edges.clear();
 	int max = 0, skel_cnt = 0, src = 2, range=3;
-	char ch;
 	while (!import_graph(edges, max, src));
 	print_data(edges);
-	cout << "Default source is " << src << ". Would you like to change it?(Y/N) ";
-	cin >> ch;
-	if (ch == 'Y' || ch == 'y') {
-		cout << "Specify new source: ";
-		cin >> src;
-		cout << "Source changed to: " << src << endl;
-	}
-	else if (ch == 'N' || ch == 'n')
-		cout << "Source left as it is." << endl;
-	else
-		cout << "Wrong key --> Source left as it is." << endl;
 	skel_cnt = count_skeletons(src, max, edges, range);
 	cout << "Number of edges in range: " << skel_cnt << endl;
 	cout << "It WORKS!" << endl;
